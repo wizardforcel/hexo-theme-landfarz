@@ -38,7 +38,7 @@ widgets:
 - tagcloud
 
 # Duoshuo
-duoshuo_shortname: fl-it-ebooks
+duoshuo_shortname: 
 
 fancybox: true
 
