@@ -1,0 +1,23 @@
+menu:
+  Home: /
+  Archives: /archives
+
+sidebar: right
+
+widgets:
+- search
+- category
+- recent_posts
+- tag
+- tagcloud
+
+# Duoshuo
+duoshuo_shortname: fl-it-ebooks
+
+fancybox: true
+
+google_analytics:
+rss: 
+google_site_verification: 
+baidu_site_verification: 
+icon: 

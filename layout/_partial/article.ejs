@@ -1,0 +1,42 @@
+<article class="<%= item.layout %>">
+  <% if (item.photos && item.photos.length){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
+  <div class="post-content">
+    <header>
+      <% if (item.layout != 'page'){ %>
+        <div class="icon"></div>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+      <% } %>
+      <%- partial('post/title') %>
+    </header>
+    <div class="entry">
+      <% if (item.excerpt && index){ %>
+        <%- item.excerpt %>
+      <% } else { %>
+        <%- item.content %>
+      <% } %>
+    </div>
+    <% if (item.excerpt && index){ %>
+    <footer>
+      <div class="alignleft">
+        <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= __('more') %></a>
+      </div>
+    </footer>
+    <% } %>
+    <footer>
+        <div class="alignright">
+          <% if (item.comments && theme.duoshuo_shortname){ %>
+          <a href="<%- url_for(item.path) %>#comment" class="comment-link">评论</a>
+          <% } %>
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+<%- partial('comment', {post: item}) %>
