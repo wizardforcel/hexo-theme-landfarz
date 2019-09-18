@@ -74,3 +74,134 @@ a
   top 0
   width 100%
   z-index -1
+
+blockquote
+  position relative
+  padding 10px
+  border 1px solid
+  border-color #bbb
+  -webkit-border-radius 5px
+  border-radius 5px
+  background #333
+  quotes none
+
+blockquote
+  &:before
+    position absolute
+    top -10px
+    left -30px
+    z-index 1
+    width 100px
+
+blockquote
+  &:after
+    display block
+    padding-top 5px
+    border-top 1px solid #fff
+    color #ccc
+    font-size 15px
+    text-align right
+    text-shadow 1px 1px 0 #555
+    line-height 1.6
+    content attr(title) "\a" attr(cite)
+    white-space pre-wrap
+    white-space -moz-pre-wrap
+    word-wrap break-word
+
+blockquote
+  &:last-child
+    margin-bottom 0
+    padding-bottom 1em
+    border-bottom 1px solid #999
+
+table {
+  border-bottom-style: none;
+  padding-bottom: 10px;
+  border-right-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top-style: none;
+  border-left-style: none;
+  padding-top: 10px;
+}
+th {
+  border-bottom: #3f3f3f 1px solid;
+  text-align: left;
+  border-left: #3f3f3f 1px solid;
+  padding-bottom: 2px;
+  background-color: #6595dc;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12pt;
+  border-top: #3f3f3f 1px solid;
+  border-right: #3f3f3f 1px solid;
+  padding-top: 2px;
+  white-space: nowrap;
+  color: #141414;
+}
+td:not(.code) {
+  border-bottom: #808080 1px solid;
+  border-left: #808080 1px solid;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 10pt;
+  border-top: #808080 1px solid;
+  border-right: #808080 1px solid;
+  padding-top: 5px;
+  background-color: #ddd;
+  color: #1f1f1f;
+}
+.toplv {
+  background-color: #9f9;
+}
+.lv2nd {
+  background-color: #f99;
+}
+.lv3rd {
+  background-color: #99f;
+}
+.lv4th {
+  background-color: #ff9;
+}
+.lv5th {
+  background-color: #9ff;
+}
+.lv6th {
+  background-color: #f9f;
+}
+.waiting {
+  background-color: #a0d0f0;
+}
+.finished {
+  background-color: #f5dcf5;
+}
+.normal-monster {
+  background-color: #f5f5dc;
+}
+.effect-monster {
+  background-color: #f4a460;
+}
+.ritual-monster {
+  background-color: #87ceeb;
+}
+.magic {
+  background-color: #9f9;
+}
+.trap {
+  background-color: #f99;
+}
+.fusion-monster {
+  background-color: #f9f;
+}
+.synchro-monster {
+  background-color: #f3f3f3;
+}
+.darksynchro-monster {
+  background-color: #1e1e1e;
+  color: #f3f3f3;
+}
+.exz-monster {
+  background-color: #606060;
+  color: #d0d3d3;
+}

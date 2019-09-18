@@ -14,6 +14,10 @@
       <% if (item.excerpt && index){ %>
         <%- item.excerpt %>
       <% } else { %>
+        <div id="toc" class="toc-article">
+          <p class="toc-title">目次</p>
+          <%- toc(item.content, {list_number: false}) %>
+        </div>
         <%- item.content %>
       <% } %>
     </div>
@@ -26,13 +30,20 @@
     <% } %>
     <footer>
         <div class="alignright">
-          <% if (item.comments && theme.duoshuo_shortname){ %>
-          <a href="<%- url_for(item.path) %>#comment" class="comment-link">评论</a>
-          <% } %>
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<%- item.title %>" data-url="<%- config.url %>/<%- item.path %>" data-via="elleonard_f" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
+        <% if (!index && item.prev){ %>
+          <div class="article-prev">
+              <a href="<%- config.root %><%- item.prev.path %>"><%- item.prev.title %> <span class="prev-arrow"/></a>
+            </div>
+        <% } %>
+        <% if (!index && item.next){ %>
+          <div class="article-next">
+            <a href="<%- config.root %><%- item.next.path %>"><%- item.next.title %> <span class="next-arrow"/></a>
+          </div>
+        <% } %>
         <!-- partial('post/share') -->
       <div class="clearfix"></div>
     </footer>

@@ -1,0 +1,12 @@
+<% if (theme.links && theme.links.length){ %>
+<div class="widget tag">
+  <h3 class="title"><%= __('links') %></h3>
+  <ul class="entry">
+    <% theme.links.forEach(function(link){ %>
+      <li>
+        <a href="<%= link.url %>"><%= link.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+</div>
+<% } %>

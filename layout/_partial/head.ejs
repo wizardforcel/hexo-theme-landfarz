@@ -47,10 +47,19 @@
     <meta property="og:image" content="<%= config.cover %>" />
   <% } %>
 
-  <% if(theme.icon) { %>
-  <link href="<%= theme.icon %>" rel="icon" />
+  <!-- ogp -->
+  <% if (page.cover) { %>
+    <% if (theme.bottom_link.twitter) { %>
+      <%- open_graph({image: url_for(page.path) + page.cover, twitter_id: theme.bottom_link.twitter}) %>
+    <% } else { %>
+      <%- open_graph({image: url_for(page.path) + page.cover}) %>
+    <% } %>
+    <meta name="twitter:image" content="<% url_for(page.path) + page.cover %>" />
   <% } else { %>
-  <link href="<%- config.root %>css/images/favicon.ico" rel="icon" />
+    <% if (theme.bottom_link.twitter) { %>
+      <%- open_graph({twitter_id: theme.bottom_link.twitter}) %>
+    <% } %>
+    <meta name="twitter:image" content="<%= config.url %><%= config.cover %>"/>
   <% } %>
 
   <link rel="alternate" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="<%= config.title %>" type="application/atom+xml">
@@ -58,7 +67,11 @@
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <%- partial('google_analytics') %>
 
-  <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-
+  <link rel="apple-touch-icon" sizes="180x180" href="<%- config.root %>favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%- config.root %>/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%- config.root %>/favicon/favicon-16x16.png">
+  <link rel="manifest" href="<%- config.root %>/favicon/site.webmanifest">
+  <link rel="mask-icon" href="<%- config.root %>/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 </head>

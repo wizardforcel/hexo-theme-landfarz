@@ -1,6 +1,9 @@
 menu:
   Home: /
-  Archives: /archives
+  About: /nplus_doc/2016/05/29/about/
+  Twitter: https://twitter.com/elleonard_f
+  GitHub: https://github.com/elleonard
+  FGO: /nplus_doc/2018/02/09/game/fate/fgo/fgo-link/
 
 sidebar: right
 
@@ -8,8 +11,13 @@ widgets:
 - search
 - category
 - recent_posts
-- tag
-- tagcloud
+- links
+
+links:
+  - url: https://www.nicovideo.jp/
+    title: niconico
+  - url: http://lovingtheflags1986.blog96.fc2.com/
+    title: 国旗と酒が待ち遠しいドリル日記
 
 # Duoshuo
 duoshuo_shortname: 
@@ -21,3 +29,8 @@ rss:
 google_site_verification: 
 baidu_site_verification: 
 icon: 
+
+favicon: /favicon/favicon.ico
+
+bottom_link:
+  twitter: elleonard_f
