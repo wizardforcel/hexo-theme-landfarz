@@ -34,3 +34,7 @@ favicon: /favicon/favicon.ico
 
 bottom_link:
   twitter: elleonard_f
+
+markdown:
+  plugins:
+    - markdown-it-footnote

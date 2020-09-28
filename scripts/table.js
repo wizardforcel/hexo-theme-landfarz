@@ -1,7 +1,7 @@
 
 const rTable = / *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/g;
 
-hexo.extend.filter.register('before_post_render', function(data) {
+hexo.extend.filter.register('before_post_render', function (data) {
   data.content = data.content.replace(rTable, (content, header, align, body) => {
 
     var headerContents = header.split('|').map(content => {
@@ -15,7 +15,7 @@ hexo.extend.filter.register('before_post_render', function(data) {
       };
     });
     headerContents.pop(); // 末尾に邪魔な要素がいる
-  
+
     const lines = body.split('\n');
     var cellContents = lines.map((line) => {
       var cells = line.split('|').map(cell => {
@@ -33,7 +33,7 @@ hexo.extend.filter.register('before_post_render', function(data) {
       cells.pop();
       return cells;
     });
-  
+
     // text align
     var textAlign = align.split('|').map(align => {
       if (align.match(/^:-*:$/)) {
@@ -43,25 +43,25 @@ hexo.extend.filter.register('before_post_render', function(data) {
       }
       return "left";
     });
-  
+
     var thead = `<thead><tr>${headerContents.map((cell) => {
+      if (cell.isCombined) {
+        return "";
+      }
+      return `<th style="text-align:center" rowspan=${cell.rowspan} colspan=${cell.colspan}>${cell.content}</th>`;
+    }).join('')}</tr></thead>`;
+
+    var tbody = `<tbody>${cellContents.map((line) => {
+      return `<tr>${line.map((cell, cellIndex) => {
         if (cell.isCombined) {
           return "";
         }
-        return `<th style="text-align:center" rowspan=${cell.rowspan} colspan=${cell.colspan}>${cell.content}</th>`;
-      }).join('')}</tr></thead>`;
-  
-    var tbody = `<tbody>${cellContents.map((line) => {
-        return `<tr>${line.map((cell, cellIndex) => {
-          if (cell.isCombined) {
-            return "";
-          }
-          const tag = cell.isHeader ? `th` : `td`;
-          return `<${tag} style="text-align:${cell.isHeader ? "center" : textAlign[cellIndex]}" rowspan=${cell.rowspan} colspan=${cell.colspan}>${cell.content}</${tag}>`
-        }).join('')}</tr>`;
-      }).join('')}</tbody>`;
-  
-    return `<table>${thead}${tbody}</table>`;
+        const tag = cell.isHeader ? `th` : `td`;
+        return `<${tag} style="text-align:${cell.isHeader ? "center" : textAlign[cellIndex]}" rowspan=${cell.rowspan} colspan=${cell.colspan}>${cell.content}</${tag}>`
+      }).join('')}</tr>`;
+    }).join('')}</tbody>`;
+
+    return `<table>${thead}${tbody}</table>\n\n`;
   });
   return data;
 });
