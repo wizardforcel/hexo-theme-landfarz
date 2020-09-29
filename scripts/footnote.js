@@ -16,6 +16,11 @@ hexo.extend.filter.register('before_post_render', (data) => {
 hexo.extend.tag.register('footnote', (args, content) => {
   const title = args[0];
   const postId = args[1];
+  if (!pages[postId]) {
+    pages[postId] = {};
+    pages[postId].footnotes = [];
+    pages[postId].footnoteId = 0;
+  }
   pages[postId].footnoteId++;
   pages[postId].footnotes.push({id: pages[postId].footnoteId, title: title});
   let text = title.replace(/\[(.+)\]\(.+\)/g, '$1');
