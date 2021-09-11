@@ -23,7 +23,7 @@ hexo.extend.tag.register('footnote', (args, content) => {
   }
   pages[postId].footnoteId++;
   pages[postId].footnotes.push({id: pages[postId].footnoteId, title: title});
-  let text = title.replace(/\[(.+)\]\(.+\)/g, '$1');
+  let text = title.replace(/\[(.+?)\]\(.+?\)/g, '$1');
   return `<sup class="footnote-ref"><a href=#fn${pages[postId].footnoteId} id="fnref${pages[postId].footnoteId}" title="${text}">${pages[postId].footnoteId}</a></sup>`;
 }, { ends: false });
 
@@ -35,7 +35,7 @@ hexo.extend.tag.register('footnote_list', (args) => {
   <ol class="footnotes-list">\n\
   ${pages[postId].footnotes.map(footnote => {
     // リンクのみ対応
-    let text = footnote.title.replace(/\[(.+)\]\((.+)\)/g, '<a href="$2">$1</a>');
+    let text = footnote.title.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
     return `<li id="fn${footnote.id}" class="footnote-item">${text}<a href="#fnref${footnote.id}"> <span class="up-arrow"/></a></li>`;
   }).join('\n')}
   </ol>

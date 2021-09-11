@@ -37,7 +37,3 @@ bottom_link:
   github: elleonard
 
 awesome_kitcode: b51cad8f00
-
-markdown:
-  plugins:
-    - markdown-it-footnote

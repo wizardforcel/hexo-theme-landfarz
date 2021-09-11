@@ -94,25 +94,17 @@ blockquote
     width 100px
 
 blockquote
-  &:after
+  & p:last-of-type
     display block
     padding-top 5px
     border-top 1px solid #fff
-    color #ccc
     font-size 15px
     text-align right
     text-shadow 1px 1px 0 #555
     line-height 1.6
-    content attr(title) "\a" attr(cite)
     white-space pre-wrap
     white-space -moz-pre-wrap
     word-wrap break-word
-
-blockquote
-  &:last-child
-    margin-bottom 0
-    padding-bottom 1em
-    border-bottom 1px solid #999
 
 table {
   border-bottom-style: none;
@@ -132,7 +124,7 @@ th {
   background-color: #6595dc;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 12pt;
+  font-size: 14pt;
   border-top: #3f3f3f 1px solid;
   border-right: #3f3f3f 1px solid;
   padding-top: 2px;
@@ -145,11 +137,11 @@ td:not(.code) {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 10pt;
+  font-size: 12pt;
   border-top: #808080 1px solid;
   border-right: #808080 1px solid;
   padding-top: 5px;
-  background-color: #ddd;
+  background-color: #cdcdcd;
   color: #1f1f1f;
 }
 .toplv {
