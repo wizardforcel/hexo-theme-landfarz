@@ -29,11 +29,15 @@
     </footer>
     <% } %>
     <footer>
-        <div class="alignright">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<%- item.title %> | <%- config.title %>" data-url="<%- config.url %>/<%- item.path %>" data-via="elleonard_f" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
+        <div class="article-footer">
+        <div class="footer-left">
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
+        </div>
+        <div class="footer-right">
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<%- item.title %> | <%- config.title %>" data-url="<%- config.url %>/<%- item.path %>" data-via="elleonard_f" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        </div>
         <% if (!index && item.prev){ %>
           <div class="article-prev">
               <a href="<%- config.root %><%- item.prev.path %>"><%- item.prev.title %> <span class="prev-arrow"/></a>
